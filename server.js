@@ -14,9 +14,9 @@ const genres = require('./routes/genres');
 app.use(bodyParser.json());
 
 // Use routes
-app.use('/artist', artist);
-app.use('/books', artist);
-app.use('/genres', artist);
+app.use('/authors', authors);
+app.use('/books', books);
+app.use('/genres', genres);
 
 // Run app
 app.listen(3000, function(){
