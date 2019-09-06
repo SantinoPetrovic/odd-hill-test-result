@@ -18,6 +18,10 @@ app.use('/authors', authors);
 app.use('/books', books);
 app.use('/genres', genres);
 
+app.get('/', (req, res, next) => {
+	res.end('Invalid endpoint.');
+});
+
 // Run app
 app.listen(3000, function(){
     console.log("Running on port 3000!");
