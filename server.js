@@ -1,5 +1,6 @@
 // Get dependencies
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // Define app
 const app = express();
@@ -8,6 +9,9 @@ const app = express();
 const authors = require('./routes/authors');
 const books = require('./routes/books');
 const genres = require('./routes/genres');
+
+// Ready app up for json format
+app.use(bodyParser.json());
 
 // Use routes
 app.use('/artist', artist);
