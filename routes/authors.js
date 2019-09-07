@@ -13,7 +13,21 @@ router.get('/', (req, res, next) => {
         if (err) {
             return res.json({success: false, msg: err});
         } else {
-            return res.json({results: authors});
+            return res.json({success: true, results: authors});
+        }
+    });
+});
+
+// Get a single author by ID.
+router.get('/:authorId', (req, res, next) => {
+    const authorId = req.params.authorId;
+    DB.get("SELECT * FROM authors WHERE id = ?", [authorId], function(err, author) {
+        if (err) {
+            return res.json({success: false, msg: err});
+        } else if (author === undefined) {
+            return res.json({success: true, msg: "No author found."});
+        } else {
+            return res.json({success: true, results: author});
         }
     });
 });
