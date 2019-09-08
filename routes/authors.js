@@ -32,4 +32,19 @@ router.get('/:authorId', (req, res, next) => {
     });
 });
 
+// List all books for a specific author.
+router.get('/:authorId/books', (req, res, next) => {
+    const authorId = req.params.authorId;
+    DB.all("SELECT books.* FROM books INNER JOIN authors_books ON books.id = authors_books.book_id WHERE authors_books.author_id = ?", [authorId], function(err, books) {
+        if (err) {
+            return res.json({success: false, msg: err});
+        } else if (books.length < 1) {
+            return res.json({success: true, msg: "No books found."});
+        } else {
+            return res.json({success: true, results: books});
+        }
+    });
+});
+
+
 module.exports = router;
