@@ -39,4 +39,40 @@ router.get('/books', (req, res, next) => {
     }
 });
 
+// Search for authors by name
+router.get('/authors', (req, res, next) => {
+    if (req.query.name) {
+        let reqQuery = "%"+req.query.name+"%";
+        DB.all("SELECT * FROM authors WHERE name LIKE ?", [reqQuery], function(err, authors) {
+            if (err) {
+                return res.json({success: false, msg: err});
+            } else if (authors.length < 1) {
+                return res.json({success: true, msg: "No authors found."});
+            } else {
+                return res.json({success: true, results: authors});
+            }
+        });
+    } else {
+        return res.json({success: false, msg: "Not a valid query. Define name for getting authors."});
+    }
+});
+
+// Search for genres by name
+router.get('/genres', (req, res, next) => {
+    if (req.query.name) {
+        let reqQuery = "%"+req.query.name+"%";
+        DB.all("SELECT * FROM genres WHERE name LIKE ?", [reqQuery], function(err, genres) {
+            if (err) {
+                return res.json({success: false, msg: err});
+            } else if (genres.length < 1) {
+                return res.json({success: true, msg: "No genres found."});
+            } else {
+                return res.json({success: true, results: genres});
+            }
+        });
+    } else {
+        return res.json({success: false, msg: "Not a valid query. Define name for getting genres."});
+    }
+});
+
 module.exports = router;
