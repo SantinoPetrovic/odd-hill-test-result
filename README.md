@@ -22,7 +22,7 @@ The following test result contains routing for following points:
 
 Clone this repo and run following command `npm install` and thereafter `npm start`.
 
-## Examples of routes
+## Examples of URL routes
 
 `/authors` - List out all authors.
 
@@ -35,3 +35,17 @@ Clone this repo and run following command `npm install` and thereafter `npm star
 `/books/1` - Get a single book, which have ID 1.
 
 `/genres/1` - Get a single genre, which have ID 1.
+
+`/books/1/authors` - List out all authors, which are connected to a book with ID 1.
+
+`/books/1/genres` - List out all genres, which are connected to a book with ID 1.
+
+`/authors/1/books` - List out all books, which are connected to a author with ID 1.
+
+`/search/books?title=Harry%20Potter%20and%20the%20Chamber%20of%20Secrets` - Search all books, which contains the title: 'Harry Potter and the Chamber of Secrets'.
+
+`/search/books?isbn=9781408855669` - Search all books, which have the ISBN number of 9781408855669.
+
+`/search/authors?name=J.R.R.%20Tolkien` - Search all authors, which contains the name: 'J.R.R. Tolkien'.
+
+`/search/genres?name=Fantasy` - Search all authors, which contains the name: 'J.R.R. Tolkien'.
