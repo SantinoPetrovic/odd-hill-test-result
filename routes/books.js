@@ -46,4 +46,18 @@ router.get('/:bookId/authors', (req, res, next) => {
     });
 });
 
+// List all genres for a specific book.
+router.get('/:bookId/genres', (req, res, next) => {
+    const bookId = req.params.bookId;
+    DB.all("SELECT genres.* FROM genres INNER JOIN books_genres ON genres.id = books_genres.genre_id WHERE books_genres.book_id = ?", [bookId], function(err, genres) {
+        if (err) {
+            return res.json({success: false, msg: err});
+        } else if (genres.length < 1) {
+            return res.json({success: true, msg: "No genres found."});
+        } else {
+            return res.json({success: true, results: genres});
+        }
+    });
+});
+
 module.exports = router;
