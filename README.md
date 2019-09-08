@@ -24,9 +24,9 @@ Clone this repo and run following command `npm install` and thereafter `npm star
 
 ## Examples of routes
 
-```/authors ``` - List out all authors.
-```/books ``` - List out all books.
-```/genres ``` - List out all books.
-```/authors/1 ``` - Get a single author, which have ID 1.
-```/books/1 ``` - Get a single book, which have ID 1.
-```/genres/1 ``` - Get a single genre, which have ID 1.
+`/authors` - List out all authors.
+`/books` - List out all books.
+`/genres` - List out all books.
+`/authors/1` - Get a single author, which have ID 1.
+`/books/1` - Get a single book, which have ID 1.
+`/genres/1` - Get a single genre, which have ID 1.
