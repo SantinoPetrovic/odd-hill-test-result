@@ -6,3 +6,5 @@ const DB = database();
 
 // Define router
 const router = express.Router();
+
+module.exports = router;
