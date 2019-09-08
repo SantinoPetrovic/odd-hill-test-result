@@ -2,7 +2,7 @@
 
 This repository contains results for making a test from Odd Hill.
 
-The following test result contains routing for following points:
+The following test result contains routings for following points:
 
 - List all books
 - List all authors
@@ -48,4 +48,4 @@ Clone this repo and run following command `npm install` and thereafter `npm star
 
 `/search/authors?name=J.R.R.%20Tolkien` - Search all authors, which contains the name: 'J.R.R. Tolkien'.
 
-`/search/genres?name=Fantasy` - Search all authors, which contains the name: 'J.R.R. Tolkien'.
+`/search/genres?name=Fantasy` - Search all genres, which contains the name: 'J.R.R. Tolkien'.
